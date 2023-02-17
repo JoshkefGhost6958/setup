@@ -31,7 +31,7 @@ function mysql_setup(){
 	#installs mysql server
 	sudo apt install -y mysql-server
 	sudo systemctl start mysql.service
-	return success
+	return 0
 }
 function mssql_tools(){
 	curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
@@ -41,7 +41,7 @@ function mssql_tools(){
 	#path config
 	echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
 	source ~/.bash_profile
-	return success
+	return 0
 }
 function mssql_setup(){
 	#installs microsoft sql server
@@ -51,7 +51,7 @@ function mssql_setup(){
 
       #installs mssql-tools
       mssql_tools()
-      return success
+      return 0
 }
 
 
@@ -59,15 +59,15 @@ function vs(){
 	#sets up vscode for instalation
 	sudo apt install software-properties-common apt-transport-https wget -y
 	wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
-	return success
+	return 0
 }
 function code_blocks(){
 	#installs codeblock and necessary dependancies
 	sudo apt install g++ -y
 	sudo add-apt-repository universe -y
 	sudo apt intall codeblocks -y
-	sudo apt install codeblocks-contrib
-	return success
+	sudo apt install codeblocks-contrib -y
+	return 0
 }
 function code_editors(){
 	#installs vscode and sublime text
@@ -75,14 +75,14 @@ function code_editors(){
 	sudo apt install code
 	code_blocks
 	sudo snap install sublime-text --classic
-	return success
+	return 0
 
 }
 function inst_browsers(){
 	#installs chrome browser
 	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 	sudo apt install ./google-chrome-stable_current_amd64.deb
-	return success
+	return 0
 }
 
 function verification(){
@@ -94,13 +94,13 @@ function verification(){
 	firefox --version
 	mysql --version
 	git --verion
-	return success
+	return 0
 }
 
 function shell_config(){
 	sudo apt install zsh -y
 	chsh -s $(which zsh)
-	return success
+	return 0
 }
 function get_git(){
 	sudo apt intall git -y
@@ -110,7 +110,7 @@ function get_git(){
 	gitEmail="joshkefason@gmail.com"
 	git config --global user.name $gitName
 	git config --global user.email $gitEmail
-	return success
+	return 0
 }
 
 ######################execution call#####################################
