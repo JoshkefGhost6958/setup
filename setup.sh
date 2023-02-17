@@ -71,9 +71,9 @@ function code_blocks(){
 }
 function code_editors(){
 	#installs vscode and sublime text
-	vs()
+	vs
 	sudo apt install code
-	code_blocks()
+	code_blocks
 	sudo snap install sublime-text --classic
 	return success
 
